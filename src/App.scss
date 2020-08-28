@@ -1,0 +1,115 @@
+$theme-colors: (
+  "primary": #152759,
+  "info": #3466d3,
+  "light": #f9f9f9,
+);
+
+$font-family-sans-serif: "Montserrat", sans-serif;
+
+$border-radius: 0.5rem;
+$border-radius-lg: 0.5rem;
+$border-radius-sm: 0.3rem;
+$font-size-base: 0.9rem;
+$font-size-lg: $font-size-base * 1.15;
+$font-size-sm: $font-size-base * 0.765;
+
+$enable-responsive-font-sizes: true;
+
+@import "../node_modules/bootstrap/scss/bootstrap.scss";
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap");
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  transition: all ease-in-out 0.2s;
+  min-height: 100vh;
+}
+
+*::-webkit-scrollbar {
+  width: 3px;
+
+  background-color: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #4950574f;
+}
+
+*::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background-color: transparent;
+}
+
+.text-size-custom {
+  &.title {
+    font-size: 36px;
+    color: red($color: #000000);
+  }
+
+  &.sub-title {
+    font-size: 18px;
+  }
+}
+
+.circle {
+  border-radius: 100%;
+  height: 65px;
+  width: 65px;
+}
+
+.fill-75 {
+  min-height: 75vh;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.modal-main {
+  position: fixed;
+  background: rgb(27, 27, 27);
+  opacity: 90%;
+  border-radius: $border-radius;
+  width: 100%;
+  height: 100%;
+  top: 50%;
+  left: 50%;
+  transition: all 0.15s ease-in-out;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+.blur {
+  backdrop-filter: blur(10px);
+}
+.invisible {
+  position: fixed;
+  background: rgb(27, 27, 27);
+  opacity: 0%;
+  border-radius: $border-radius;
+  width: 5%;
+  height: 5%;
+  top: 50%;
+  left: 50%;
+  transition: all 0.15s ease-in-out;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+.cursor-clickable {
+  cursor: pointer;
+}
+
+.blank {
+  height: 100px;
+}
