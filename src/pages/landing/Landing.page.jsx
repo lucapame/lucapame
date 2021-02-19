@@ -1,98 +1,109 @@
-import React, { useState } from "react";
+import React from "react";
+import { Fragment } from "react";
+import { Link } from "react-router-dom";
+import BigItemComponent from "../../components/big-item.component";
 import "./style.scss";
-import { withRouter, useHistory } from "react-router-dom";
-import About from "../../components/About.component";
 
 const Landing = () => {
-  const [animation1, setanimation1] = useState("fadeInUp");
-
-  const [animation2, setanimation2] = useState("fadeInUp");
-
-  const [animation3, setanimation3] = useState("fadeInUp");
-
-  const [showModal, setshowModal] = useState(false);
-
-  const history = useHistory();
-
   return (
-    <div className="bg p-4">
-      <About handleClose={setshowModal} show={showModal}></About>
+    <Fragment>
+      <div className="container mt-4">
+        <div className="about text-center">
+          <img
+            src="/images/mimoji_1.png"
+            className="img-fluid animated faster fadeIn"
+            alt="..."
+          />
 
-      <nav class="navbar navbar-light">
-        <div className=" ">
-          <p className="text-white font-weight-bold m-0  animated fadeInUp  faster">
-            LUIS C.
-            <br />
-            PARRA
-          </p>
-        </div>
-
-        <div className=" ">
-          <p className="text-white font-weight-light m-0  animated fadeInUp  faster">
-            Write
-          </p>
-        </div>
-      </nav>
-      <div className="h-75 container-fluid">
-        <div className="d-flex flex-md-row flex-column align-items-center h-100  justify-content-around">
-          <h1
-            className={`font-weight-bold btn-link  animated faster ${animation1}`}
-            onClick={() => {
-              setanimation1("fadeOutUp");
-              setTimeout(() => history.push("/showcase"), 300);
-            }}
-          >
-            About
-          </h1>
-          <h1
-            className={`font-weight-bold btn-link  animated  ${animation2}`}
-            onClick={() => {
-              setanimation2("fadeOutUp");
-              setTimeout(() => history.push("/showcase"), 300);
-            }}
-          >
-            Portfolio
-          </h1>
-          <h1
-            className={`font-weight-bold btn-link  animated  ${animation3}`}
-            onClick={() => {
-              setanimation3("fadeOutUp");
-              setTimeout(() => history.push("/showcase"), 300);
-            }}
-          >
-            Experiments
-          </h1>
-        </div>
-        <footer>
-          <div className="d-flex  flex-column align-items-left justify-content-around w-25">
-            <p className="my-3 btn-link-sm text-white">
-              <i className="fab fa-instagram "></i>
-              <small className="btn-link-sm text"> Instagram</small>
-            </p>
-            <p className="my-3 btn-link-sm text-white">
-              <i className="fab fa-linkedin "></i>
-              <small className="btn-link-sm text"> LinkedIn</small>
-            </p>
-            <p className="my-3 btn-link-sm text-white">
-              <i className="fas fa-envelope "></i>
-              <small className="btn-link-sm text"> Contact</small>
+          <h1 className="fw-bold animated  fadeInUp">Luis C. Parra Mendoza</h1>
+          <div className="">
+            <p className="mx-md-5 m-3 animated  fadeInUp">
+              I'm a computer science engineer passionate about UX design. I
+              understand that the perfect User Interface should look great and
+              work even better. I like to think creatively to bring innovation
+              to my work, and my philosophy is all about designing beautiful
+              experiences that leave a positive impact on people.
             </p>
           </div>
-        </footer>
-      </div>
+        </div>
 
-      {/* <div className={`footer pb-4 animated  ${animation}`}>
-        <p
-          onClick={() => {
-            setanimation("fadeOutUp");
-            setTimeout(() => history.push("/showcase"), 500);
-          }}
-          className="text-white font-weight-bold m-0 h6 text-center cursor-clickable"
-        >
-          See Work
-        </p>
-      </div> */}
-    </div>
+        <div className="container mt-3">
+          <div className="row container  row-cols-1 row-cols-md-2 m-0">
+            <div className="col mt-4 animated  fadeInUp delay-1">
+              <Link to="/fitness-app" className="unstyled-link ">
+                <BigItemComponent
+                  img="fitness_app.png"
+                  tags={["concept", "product", "design"]}
+                  type="experimental"
+                  title="Fitness App"
+                />
+              </Link>
+            </div>
+
+            <div className="col mt-4 animated  fadeInUp delay-2">
+              <Link
+                to="/uach-sega"
+                className="unstyled-link animated  fadeInUp delay-1"
+              >
+                <BigItemComponent
+                  img="uach_sega.png"
+                  tags={[
+                    "concept",
+                    "product design",
+                    "UX reaserch",
+                    "UI reaserch",
+                    "usability testing",
+                  ]}
+                  type="academic"
+                  title="UACH Sega redisign"
+                />
+              </Link>
+            </div>
+
+            <div className="col mt-4 animated  fadeInUp delay-1">
+              <Link
+                to="/lol-boosting"
+                className="unstyled-link animated  fadeInUp delay-1"
+              >
+                <BigItemComponent
+                  img="lol_boosting.png"
+                  tags={["web design", "concept", "UX design"]}
+                  type="client request"
+                  title="Client Website"
+                />
+              </Link>
+            </div>
+            <div className="col mt-4 animated  fadeInUp delay-2">
+              <Link
+                to="/freedom-school"
+                className="unstyled-link animated  fadeInUp delay-1"
+              >
+                <BigItemComponent
+                  img="music_freedom.png"
+                  tags={["web design", "concept"]}
+                  type="client request"
+                  title="Music School website"
+                />
+              </Link>
+            </div>
+            <div className="col mt-4 animated  fadeInUp delay-1">
+              <Link
+                to="/places-app"
+                className="unstyled-link animated  fadeInUp delay-1"
+              >
+                <BigItemComponent
+                  img="places_app.png"
+                  tags={["UI reaserch", "product design", "concept"]}
+                  type="For fun"
+                  title="Conceptual App"
+                />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+      ;
+    </Fragment>
   );
 };
 

@@ -1,10 +1,41 @@
-$theme-colors: (
-  "primary": #152759,
-  "info": #3466d3,
-  "light": #f9f9f9,
-);
+$theme-colors: ("primary": #b80c09ff, "secondary":#0b4f6cff, "info": #01baefff,
+  "light": #a0a0a0, dark:#040f16ff);
 
-$font-family-sans-serif: "Montserrat", sans-serif;
+// $theme-colors: ("international-orange": #b80c09ff,
+//   "blue-sapphire": #0b4f6cff,
+//   "cyan-process": #01baefff,
+//   "ghost-white": #fbfbffff,
+//   "rich-black": #040f16ff,
+// );
+
+
+
+$font-family-sans-serif: "Montserrat",
+sans-serif;
+
+// @each $person-name, $person-details in $people {
+//   $age: map-get($person-details, 'age');
+//   $sex: map-get($person-details, 'sex');
+//   $keys: map-keys($person-details);
+
+//   .#{$person-name} {
+
+//       height: 100 px;
+//       width: 100 px;
+//       background: #FF3C00;
+//       margin: 0 auto;
+
+//       &:before {
+//           content:"#{$person-name}  #{nth($keys, 1)} : #{$age} ";
+//       }
+
+//       &:after {
+//           content: "#{nth($keys, 2)}: #{$sex}";
+//       }
+
+//   }
+
+// }
 
 $border-radius: 0.5rem;
 $border-radius-lg: 0.5rem;
@@ -26,18 +57,24 @@ body {
   overflow-x: hidden;
   scroll-behavior: smooth;
   transition: all ease-in-out 0.2s;
-  min-height: 100vh;
+
+}
+
+.lock-scroll {
+  overflow-y: hidden;
+
 }
 
 *::-webkit-scrollbar {
-  width: 3px;
+  width: 6px;
+  height: 3px;
 
   background-color: transparent;
 }
 
 *::-webkit-scrollbar-thumb {
-  border-radius: 10px;
-  background-color: #4950574f;
+
+  background-color: map-get($theme-colors, 'light');
 }
 
 *::-webkit-scrollbar-track {
@@ -45,25 +82,35 @@ body {
   background-color: transparent;
 }
 
-.text-size-custom {
-  &.title {
-    font-size: 36px;
-    color: red($color: #000000);
-  }
 
-  &.sub-title {
-    font-size: 18px;
-  }
+.link {
+  color: #A9A9A9;
+  text-decoration: none;
+  transition: all ease-in-out .3s;
+  cursor: pointer;
 }
 
-.circle {
-  border-radius: 100%;
-  height: 65px;
-  width: 65px;
+.link:hover {
+  color: map-get($theme-colors, 'primary');
+  text-decoration: none;
+  transition: all ease-in-out .3s;
 }
 
-.fill-75 {
-  min-height: 75vh;
+.link-selected {
+  color: map-get($theme-colors, 'primary');
+  font-weight: bold;
+}
+
+
+.item-img:hover {
+  transform: scale(.98);
+  transition: all ease-in-out .2s;
+}
+
+
+.item-img {
+
+  transition: all ease-in-out .2s;
 }
 
 .modal {
@@ -72,29 +119,31 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(10px);
 }
 
 .modal-main {
   position: fixed;
-  background: rgb(27, 27, 27);
-  opacity: 90%;
   border-radius: $border-radius;
-  width: 100%;
-  height: 100%;
+  width: 90%;
+  height: 95%;
   top: 50%;
   left: 50%;
-  transition: all 0.15s ease-in-out;
+  transition: all 0.2s ease;
   transform: translate(-50%, -50%);
   z-index: 1;
+  border: rgb(0, 0, 0) 1px;
+  border: 1px solid rgba(204, 204, 204, 0.207);
+  background: rgba(232, 232, 232, 0.672);
+
 }
 
 .blur {
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(20px);
 }
+
 .invisible {
   position: fixed;
-  background: rgb(27, 27, 27);
   opacity: 0%;
   border-radius: $border-radius;
   width: 5%;
@@ -106,10 +155,70 @@ body {
   z-index: 1;
 }
 
-.cursor-clickable {
+.unstyled-link {
+  text-decoration: none;
+  color: #141514;
+}
+
+.unstyled-link:hover {
+  text-decoration: none;
+  color: #141514;
+}
+
+.thumnail-phone {
+  max-height: 350px;
+}
+
+.thumnail {
+  max-height: 150px;
+}
+
+.maxheight {
+  max-height: 100vh;
+  overflow-y: scroll;
+}
+
+.circle {
+  height: 60px;
+  width: 60px;
+  background-color: #00a8dc;
+  border-radius: 100%;
+}
+
+.selectable-item {
+  color: map-get($theme-colors, 'light');
+  transition: all ease-in-out .2s;
   cursor: pointer;
 }
 
-.blank {
-  height: 100px;
+.selectable-item:hover {
+  color: map-get($theme-colors, 'primary');
+}
+
+.max-height {
+  min-height: 78vh;
+}
+
+.hidden {
+  visibility: hidden
+}
+
+.txt-xs {
+  font-size: x-small;
+}
+
+.delay-1 {
+  animation-delay: .15s;
+}
+
+.delay-2 {
+  animation-delay: .3s;
+}
+
+.delay-3 {
+  animation-delay: .55s;
+}
+
+.delay-4 {
+  animation-delay: .70s;
 }
